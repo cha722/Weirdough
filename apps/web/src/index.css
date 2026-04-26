@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Premium Bakery Color System - Warm, inviting, elegant */
+    --background: 35 30% 98%; /* Warm off-white */
+    --foreground: 174 50% 10%;
+    
+    --primary: 174 75% 35%; 
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 35 20% 92%;
+    --secondary-foreground: 174 50% 15%;
+    
+    --accent: 35 40% 85%; /* Warm gold/sand accent */
+    --accent-foreground: 174 90% 10%;
+    
+    --muted: 35 15% 90%;
+    --muted-foreground: 174 20% 40%;
+    
+    --card: 0 0% 100%;
+    --card-foreground: 174 50% 10%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 174 50% 10%;
+    
+    --border: 35 20% 85%;
+    --input: 35 20% 85%;
+    --ring: 174 75% 35%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    
+    --radius: 1rem;
+  }
+  
+  .dark {
+    --background: 174 50% 5%;
+    --foreground: 35 30% 98%;
+    
+    --primary: 174 71% 60%;
+    --primary-foreground: 174 90% 10%;
+    
+    --secondary: 174 30% 12%;
+    --secondary-foreground: 35 20% 98%;
+    
+    --accent: 35 40% 25%;
+    --accent-foreground: 35 30% 98%;
+    
+    --muted: 174 20% 15%;
+    --muted-foreground: 174 20% 70%;
+    
+    --card: 174 30% 8%;
+    --card-foreground: 35 20% 98%;
+    
+    --popover: 174 30% 8%;
+    --popover-foreground: 35 20% 98%;
+    
+    --border: 174 30% 18%;
+    --input: 174 30% 18%;
+    --ring: 174 71% 60%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    font-family: "DM Sans", sans-serif;
+    overflow-x: clip;
+    font-variant-numeric: tabular-nums;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Playfair Display", serif;
+    text-wrap: balance;
+  }
+  
+  h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight;
+    letter-spacing: -0.02em;
+  }
+  
+  h2 {
+    @apply text-3xl md:text-4xl font-bold leading-snug;
+    letter-spacing: -0.01em;
+  }
+  
+  h3 {
+    @apply text-2xl md:text-3xl font-semibold leading-snug;
+  }
+  
+  p {
+    @apply leading-relaxed;
+  }
+}
+
+@layer utilities {
+  .shadow-luxury {
+    box-shadow: 0 10px 40px -10px hsl(var(--foreground) / 0.08), 0 1px 3px hsl(var(--foreground) / 0.05);
+  }
+  .shadow-luxury-hover {
+    box-shadow: 0 20px 40px -10px hsl(var(--foreground) / 0.12), 0 1px 3px hsl(var(--foreground) / 0.05);
+  }
+  .shadow-inner-luxury {
+    box-shadow: inset 0 2px 4px 0 hsl(var(--foreground) / 0.05);
+  }
+}
+
+@layer components {
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  .section-padding {
+    @apply py-16 md:py-24;
+  }
+  
+  .btn-primary {
+    @apply bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/20 active:scale-[0.98] transition-all duration-300 font-medium;
+  }
+  
+  .card-hover {
+    @apply transition-all duration-500 hover:shadow-luxury-hover hover:-translate-y-2;
+  }
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
